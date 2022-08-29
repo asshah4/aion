@@ -8,37 +8,38 @@
 #'   accepted parameter options are listed, with the type of table that will be
 #'   generated:
 #'
-#'   * __traditional__: Traditional survival table that has single censoring event
-#'   (`trad`)
+#'   * __traditional__: Traditional survival table that has single censoring
+#'   event (`trad`)
 #'
-#'   * __counting__ : Formally called the Andersen and Gill model (`ag`). Counting
-#'   process model assumes each event is independent and that a subject
+#'   * __counting__ : Formally called the Andersen and Gill model (`ag`).
+#'   Counting process model assumes each event is independent and that a subject
 #'   contributes to the risk set during the time under observation. Multiple
 #'   events are treated as a new (but delayed) entry that is followed until the
 #'   next event. This means subjects under observation are at risk for a second
 #'   event, even without having had a prior event. There are thus no _strata_ in
 #'   the model.
 #'
-#'   * __marginal__: Marginal model assumes each event is a separate process
-#'   (`marginal`). Each subject is at risk for all events. The time for an event
-#'   starts at the beginning of follow-up for each subject. Thus, each risk
-#'   period is considered a different _strata_ (regardless of if subject had an
-#'   event or not).
+#'   * __marginal__: Formally called the Wei-Lin-Weissfield model, but more
+#'   commonly known as a marginal model (`marginal`). Marginal models assumes
+#'   each event is a separate process. Each subject is at risk for all events.
+#'   The time for an event starts at the beginning of follow-up for each
+#'   subject. Thus, each risk period is considered a different _strata_
+#'   (regardless of if subject had an event or not).
 #'
 #'   * __conditional A__: Formally called the Prentice, Williams, and Peterson
 #'   total time model (`pwptt`). Conditional A models order events by
 #'   stratification, based on the number of events prior. All subjects are at
-#'   risk for the first _strata_, but only those with a previous event are at
+#'   risk for the left _strata_, but only those with a previous event are at
 #'   risk for a successive event. The total time to event is used.
 #'
-#'   * __conditional B__: Formally called the Prentice, Williams, and Peterson gap
-#'   time model (`pwpgt`). Conditional B models also order events by strata
+#'   * __conditional B__: Formally called the Prentice, Williams, and Peterson
+#'   gap time model (`pwpgt`). Conditional B models also order events by strata
 #'   (like conditional A), however the time to outcome is defined as the gap
 #'   between the time of previous event.
 #'
 #' @details This function takes every event date, and creates several types of
 #'   recurrent event tables. It orders the data chronologically for repeat
-#'   events. Currently does normal (first event) and recurrent models (counting,
+#'   events. Currently does normal (left event) and recurrent models (counting,
 #'   marginal, and conditional A and B models). Further details can be found at
 #'   [IDRE](https://stats.idre.ucla.edu/sas/faq/how-can-i-model-repeated-events-survival-analysis-in-proc-phreg/).
 #'
@@ -86,13 +87,13 @@
 #'
 #' @param id Column in dataframe that contains unique IDs for each row
 #'
-#' @param first Column with left/enrollment dates
+#' @param left Column with left/enrollment dates
 #'
-#' @param last Column with right/censoring time point, or last contact
+#' @param right Column with right/censoring time point, or right contact
 #'
 #' @param censor Column that names if death/final censorship is known (0 or 1).
 #'   The default is that, if no censorship information is given, that are no
-#'   failure events at time of last contact. `censor` is not required for
+#'   failure events at time of right contact. `censor` is not required for
 #'   recurrent event analysis, but is required for traditional survival tables.
 #'
 #' @param event_dates Vector of columns that contain event dates
@@ -104,15 +105,15 @@
 #'
 #' # Parameters
 #' id <- "patid"
-#' first <- "first_visit_date_bl"
-#' last <- "ldka"
+#' left <- "left_visit_date_bl"
+#' right <- "ldka"
 #' event_dates <- c("mi_date_1", "mi_date_2", "mi_date_3")
 #' model_type <- "marginal"
 #' censor <- "DEATH_CV_YN"
 #'
 #' # Run analysis
 #' out <- recur(
-#'   mims, model_type, id, first, last, censor, event_dates
+#'   mims, model_type, id, left, right, censor, event_dates
 #' )
 #' }
 #'
@@ -122,7 +123,13 @@
 #' @importFrom tidyr nest unnest pivot_longer pivot_wider
 #' @export
 #' @rdname recur
-recur <- function(data, model_type, id, first, last, censor = NULL, event_dates = NULL) {
+recur <- function(data,
+									model_type,
+									id,
+									left,
+									right,
+									censor = NULL,
+									event_dates = NULL) {
 
 	# Check to see if censoring column is available
 	if (is.null(censor)) {
@@ -145,8 +152,8 @@ recur <- function(data, model_type, id, first, last, censor = NULL, event_dates 
 	if (model_type != "trad") {
 		if (
 			!id %in% names(data) |
-			!first %in% names(data) |
-			!last %in% names(data) |
+			!left %in% names(data) |
+			!right %in% names(data) |
 			!censor %in% names(data) |
 			length(setdiff(event_dates, names(data))) != 0
 		) {
@@ -160,11 +167,11 @@ recur <- function(data, model_type, id, first, last, censor = NULL, event_dates 
 	if (model_type == "trad") {
 		tbl <-
 			data %>%
-			select(all_of(c(id, first, last, censor, event_dates))) %>%
+			select(all_of(c(id, left, right, censor, event_dates))) %>%
 			dplyr::rename(
 				id = all_of(id),
-				first = all_of(first),
-				last = all_of(last),
+				left = all_of(left),
+				right = all_of(right),
 				censor = all_of(censor)
 			) %>%
 			mutate(strata = strata) %>%
@@ -173,15 +180,15 @@ recur <- function(data, model_type, id, first, last, censor = NULL, event_dates 
 		# Make base table
 		tbl <-
 			data %>%
-			select(all_of(c(id, first, last, censor, event_dates))) %>%
+			select(all_of(c(id, left, right, censor, event_dates))) %>%
 			dplyr::rename(
 				id = all_of(id),
-				first = all_of(first),
-				last = all_of(last),
+				left = all_of(left),
+				right = all_of(right),
 				censor = all_of(censor)
 			) %>%
 			dplyr::rowwise() %>%
-			mutate(strata_0 = first) %>%
+			mutate(strata_0 = left) %>%
 			# Arrange by date
 			pivot_longer(
 				cols = c(strata_0, all_of(event_dates)),
@@ -224,8 +231,8 @@ recur_model_type <- function(tbl, model_type) {
 		# Traditional / simple model
 		trad = {
 			tbl$status <- tbl$censor
-			tbl$stop <- tbl$last - tbl$first
-			tbl$date <- tbl$last
+			tbl$stop <- tbl$right - tbl$left
+			tbl$date <- tbl$right
 			res <- tbl
 		},
 		# Marginal Model
@@ -244,10 +251,10 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Stop time for events
 					for (i in n) {
-						# Stop time will be event date - first
+						# Stop time will be event date - left
 						x$stop[x$strata == paste0("strata_", i)] <-
 							x$date[x$strata == paste0("strata_", i)] -
-							x$first[x$strata == paste0("strata_", i - 1)]
+							x$left[x$strata == paste0("strata_", i - 1)]
 
 						# Status if event occurs
 						x$status[x$strata == paste0("strata_", i)] <- 1
@@ -255,11 +262,11 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Set censor date
 					x$date[x$strata == "strata_0"] <-
-						x$last[x$strata == "strata_0"]
+						x$right[x$strata == "strata_0"]
 
 					# Censoring stop time
 					x$stop[x$strata == "strata_0"] <-
-						x$date[x$strata == "strata_0"] - x$first[x$strata == "strata_0"]
+						x$date[x$strata == "strata_0"] - x$left[x$strata == "strata_0"]
 
 					# Status of censoring events
 					x$status[x$strata == "strata_0" & x$censor == 1] <- 1
@@ -286,10 +293,10 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Time for events
 					for (i in n) {
-						# Stop time will be event date - first
+						# Stop time will be event date - left
 						x$stop[x$strata == paste0("strata_", i)] <-
 							x$date[x$strata == paste0("strata_", i)] -
-							x$first[x$strata == paste0("strata_", i - 1)]
+							x$left[x$strata == paste0("strata_", i - 1)]
 
 						# Status if event occurs
 						x$status[x$strata == paste0("strata_", i)] <- 1
@@ -301,11 +308,11 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Set censor date
 					x$date[x$strata == "strata_0"] <-
-						x$last[x$strata == "strata_0"]
+						x$right[x$strata == "strata_0"]
 
 					# Censoring stop time
 					x$stop[x$strata == "strata_0"] <-
-						x$date[x$strata == "strata_0"] - x$first[x$strata == "strata_0"]
+						x$date[x$strata == "strata_0"] - x$left[x$strata == "strata_0"]
 
 					# Status of censoring events
 					x$status[x$strata == "strata_0" & x$censor == 1] <- 1
@@ -336,10 +343,10 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Time for events
 					for (i in n) {
-						# Stop time will be event date - first (to be modified / collapsed)
+						# Stop time will be event date - left (to be modified / collapsed)
 						x$stop[x$strata == paste0("strata_", i)] <-
 							x$date[x$strata == paste0("strata_", i)] -
-							x$first[x$strata == paste0("strata_", i - 1)]
+							x$left[x$strata == paste0("strata_", i - 1)]
 
 						# Status if event occurs
 						x$status[x$strata == paste0("strata_", i)] <- 1
@@ -351,11 +358,11 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Set censor date
 					x$date[x$strata == "strata_0"] <-
-						x$last[x$strata == "strata_0"]
+						x$right[x$strata == "strata_0"]
 
 					# Censoring stop time
 					x$stop[x$strata == "strata_0"] <-
-						x$date[x$strata == "strata_0"] - x$first[x$strata == "strata_0"]
+						x$date[x$strata == "strata_0"] - x$left[x$strata == "strata_0"]
 
 					# Status of censoring events
 					x$status[x$strata == "strata_0" & x$censor == 1] <- 1
@@ -390,10 +397,10 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Time for events
 					for (i in n) {
-						# Stop time will be event date - first
+						# Stop time will be event date - left
 						x$stop[x$strata == paste0("strata_", i)] <-
 							x$date[x$strata == paste0("strata_", i)] -
-							x$first[x$strata == paste0("strata_", i - 1)]
+							x$left[x$strata == paste0("strata_", i - 1)]
 
 						# Status if event occurs
 						x$status[x$strata == paste0("strata_", i)] <- 1
@@ -405,11 +412,11 @@ recur_model_type <- function(tbl, model_type) {
 
 					# Set censor date
 					x$date[x$strata == "strata_0"] <-
-						x$last[x$strata == "strata_0"]
+						x$right[x$strata == "strata_0"]
 
 					# Censoring stop time
 					x$stop[x$strata == "strata_0"] <-
-						x$date[x$strata == "strata_0"] - x$first[x$strata == "strata_0"]
+						x$date[x$strata == "strata_0"] - x$left[x$strata == "strata_0"]
 
 					# Status of censoring events
 					x$status[x$strata == "strata_0" & x$censor == 1] <- 1

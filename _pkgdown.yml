@@ -1,0 +1,27 @@
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  theme: solarized-light
+
+url: https://asshah4.github.io/lazarus/
+
+destination: docs
+
+home:
+  title: Recurrent events
+  description: Tools that aid in the evaluation of recurring outcomes
+
+navbar:
+  structure:
+    left: [home, intro, reference, articles, tutorials, news]
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: https://asshah4.github.io/
+    reference:
+      text: Reference
+      href: reference/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/asshah4/lazarus/

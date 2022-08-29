@@ -13,12 +13,16 @@ coverage](https://codecov.io/gh/asshah4/lazarus/branch/main/graph/badge.svg)](ht
 <!-- badges: end -->
 
 The goal of `lazarus` is to provide tools to allow for data tidying and
-analysis of recurrent events and other longitudinal lazarus.
+analysis of recurrent events and other longitudinal outcomes. The name
+comes from the story and/or mythology of *Lazarus*, a man that had died
+and was brought back to life from the Gospels. More popularly, the
+*Lazarus Pit* can heal injuries and grant immortality in the DC Comics
+universe.
 
 ## Installation
 
-You can install the released version of lazarus from
-[CRAN](https://CRAN.R-project.org) with:
+Once it is available, you can install the released version of `lazarus`
+from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 #install.packages("lazarus")

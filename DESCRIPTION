@@ -1,5 +1,5 @@
 Package: lazarus
-Title: Repeating events
+Title: Recurrent events
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anish",
@@ -14,12 +14,17 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Imports: 
-    lifecycle
+    lifecycle,
+    survival,
+    card,
 Suggests: 
     covr,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/asshah4/lazarus
 BugReports: https://github.com/asshah4/lazarus/issues
+VignetteBuilder: knitr
