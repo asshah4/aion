@@ -1,4 +1,4 @@
 library(testthat)
-library(outcomes)
+library(lazarus)
 
-test_check("outcomes")
+test_check("lazarus")
