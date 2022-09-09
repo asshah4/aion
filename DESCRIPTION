@@ -1,5 +1,5 @@
 Package: lazarus
-Title: Recurrent events
+Title: Recurrence and Recidivism
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anish",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "ashah282@uic.edu",
            comment = c(ORCID = "0000-0002-9729-1558"))
-Description: Tools that aid in the evaluation of longitudinal lazarus, 
+Description: Tools that aid in the evaluation of longitudinal events, 
     particularly with recurrent events. This is both from a data tidying and 
     analytical perspective. 
 License: MIT + file LICENSE
@@ -15,10 +15,11 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Depends:
+		R (>= 4.0),
 Imports: 
     lifecycle,
     survival,
-    card,
 Suggests: 
     covr,
     knitr,
