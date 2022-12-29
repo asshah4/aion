@@ -1,4 +1,4 @@
 library(testthat)
-library(lazarus)
+library(ouroborus)
 
-test_check("lazarus")
+test_check("ouroborus")

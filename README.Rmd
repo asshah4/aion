@@ -13,28 +13,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-# lazarus
+# ouroborus
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/asshah4/lazarus/workflows/R-CMD-check/badge.svg)](https://github.com/asshah4/lazarus/actions)
+[![R-CMD-check](https://github.com/asshah4/ouroborus/workflows/R-CMD-check/badge.svg)](https://github.com/asshah4/ouroborus/actions)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Codecov test coverage](https://codecov.io/gh/asshah4/lazarus/branch/main/graph/badge.svg)](https://codecov.io/gh/asshah4/lazarus?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/asshah4/ouroborus/branch/main/graph/badge.svg)](https://codecov.io/gh/asshah4/ouroborus?branch=main)
 <!-- badges: end -->
 
-The goal of `lazarus` is to provide tools to allow for data tidying and
-analysis of recurrent events and other longitudinal outcomes. The name comes from the story and/or mythology of _Lazarus_, a man that had died and was brought back to life from the Gospels. More popularly, the _Lazarus Pit_ can heal injuries and grant immortality in the DC Comics universe.
+The goal of `ouroborus` is ...
 
 ## Installation
 
-Once it is available, you can install the released version of `lazarus` from [CRAN](https://CRAN.R-project.org) with:
+Once it is available, you can install the released version of `ouroborus` from [CRAN](https://CRAN.R-project.org) with:
 
 ```{r, eval=FALSE}
-#install.packages("lazarus")
+#install.packages("ouroborus")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ```{r, eval=FALSE}
 # install.packages("devtools")
-devtools::install_github("asshah4/lazarus")
+devtools::install_github("asshah4/ouroborus")
 ```
