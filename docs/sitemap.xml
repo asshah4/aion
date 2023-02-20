@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://asshah4.github.io/lazarus/404.html</loc>
+    <loc>https://asshah4.github.io/aion/404.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/LICENSE-text.html</loc>
+    <loc>https://asshah4.github.io/aion/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/LICENSE.html</loc>
+    <loc>https://asshah4.github.io/aion/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/articles/index.html</loc>
+    <loc>https://asshah4.github.io/aion/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/articles/recurrent_events.html</loc>
+    <loc>https://asshah4.github.io/aion/articles/recurrent_events.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/authors.html</loc>
+    <loc>https://asshah4.github.io/aion/authors.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/index.html</loc>
+    <loc>https://asshah4.github.io/aion/index.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/reference/index.html</loc>
+    <loc>https://asshah4.github.io/aion/reference/aion-package.html</loc>
   </url>
   <url>
-    <loc>https://asshah4.github.io/lazarus/reference/recur.html</loc>
+    <loc>https://asshah4.github.io/aion/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://asshah4.github.io/aion/reference/recur.html</loc>
+  </url>
+  <url>
+    <loc>https://asshah4.github.io/aion/reference/rhythm.html</loc>
   </url>
 </urlset>

@@ -1,10 +1,10 @@
-pandoc: '2.18'
-pkgdown: 2.0.6
+pandoc: '3.1'
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   recurrent_events: recurrent_events.html
-last_built: 2022-08-29T14:33Z
+last_built: 2023-02-20T00:59Z
 urls:
-  reference: https://asshah4.github.io/lazarus/reference
-  article: https://asshah4.github.io/lazarus/articles
+  reference: https://asshah4.github.io/aion/reference
+  article: https://asshah4.github.io/aion/articles
 

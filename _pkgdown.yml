@@ -3,12 +3,12 @@ template:
   bootswatch: flatly
   theme: solarized-light
 
-url: https://asshah4.github.io/ouroborus/
+url: https://asshah4.github.io/aion/
 
 destination: docs
 
 home:
-  title: Recurrent events
+  title: Cyclical and recurring pattern analysis
   description: Tools that aid in the evaluation of recurring outcomes
 
 navbar:
@@ -24,4 +24,4 @@ navbar:
       href: reference/index.html
     github:
       icon: fab fa-github fa-lg
-      href: https://github.com/asshah4/ouroborus/
+      href: https://github.com/asshah4/aion/

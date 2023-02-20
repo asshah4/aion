@@ -4,12 +4,19 @@
 \alias{rhythm}
 \title{Rhythm of events}
 \usage{
-rhythm(x, t, ...)
+rhythm(x, t, f, a, ...)
 }
 \arguments{
 \item{x}{Vector of potential data points that reflect (or do not reflect) event data}
 
 \item{t}{Vector of time points that reflect information about events}
+
+\item{f}{Frequency of data sampling to help udnerstand the range and scale of
+\code{t}, such as if its in calendar years, time stamps, or continuous time
+intervals.}
+
+\item{a}{Annotation that labels certain points as of having particular
+interest, such as event status, censorship, etc.}
 }
 \value{
 A "combined" record of the \code{rhythm} class that has validated event
@@ -22,5 +29,8 @@ of variable (continuous or categorical) and how it is sampled (regular or
 irregular intervals).
 }
 \details{
-Both \code{x} and \code{t} must be vectors of the same length.
+Both \code{x} and \code{t} must be vectors of the same length. \code{a} is presumed to be
+only annotation data at certain positions. \code{f} serves as a marker of
+frequency or scale of the data (e.g. if its in days, years, months, or a
+smaller, more continuous scale such as seconds, minutes, etc).
 }

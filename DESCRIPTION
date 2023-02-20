@@ -1,5 +1,5 @@
-Package: ouroboros
-Title: Circular and repeating patterns
+Package: aion
+Title: Cyclical and recurring pattern analysis
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anish",
@@ -16,7 +16,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Depends:
-		R (>= 4.0),
+	R (>= 4.0),
 Imports: 
     lifecycle,
     survival,
@@ -26,6 +26,8 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://github.com/asshah4/ouroborus
-BugReports: https://github.com/asshah4/ouroborus/issues
+Remotes:
+    asshah4/card
+URL: https://github.com/asshah4/aion
+BugReports: https://github.com/asshah4/aion/issues
 VignetteBuilder: knitr
