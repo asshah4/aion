@@ -1,5 +1,5 @@
-Package: aion
-Title: Cyclical and recurring pattern analysis
+Package: orobrs
+Title: Cyclical and circular regressions
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anish",
@@ -28,6 +28,6 @@ Suggests:
 Config/testthat/edition: 3
 Remotes:
     asshah4/card
-URL: https://github.com/asshah4/aion
-BugReports: https://github.com/asshah4/aion/issues
+URL: https://github.com/asshah4/orobrs
+BugReports: https://github.com/asshah4/orobrs/issues
 VignetteBuilder: knitr
