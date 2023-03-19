@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/asshah4/orobrs/branch/main/graph/badge.svg)](https://codecov.io/gh/asshah4/orobrs?branch=main)
 <!-- badges: end -->
 
-The goal of `orobrs` is to handle cyclical events, of both continuous and categorical data. The name stems from the Hellenic tradition of perpetual and rhythmic cycles of time - instead of linear time. Sometimes seen with the symbol of the _ouroboros_, of the snake eating its tail, _Aion is the god of the cyclic ages_.
+The goal of `orobrs` is to handle cyclical/harmonic events. The name stems from the Hellenic tradition of perpetual and rhythmic cycles of time - sometimes seen as the symbol of the _ouroboros_, the snake biting its own tail.
 
 ## Installation
 
