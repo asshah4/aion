@@ -3,13 +3,13 @@ template:
   bootswatch: flatly
   theme: solarized-light
 
-url: https://asshah4.github.io/orobrs/
+url: https://asshah4.github.io/orbs/
 
 destination: docs
 
 home:
-  title: Cyclical and recurring pattern analysis
-  description: Tools that aid in the evaluation of recurring outcomes
+  title: Cyclical and rhythm based statistics 
+  description: Tools that aid in the evaluation of data that exists in a circular or rhythmic nature
 
 navbar:
   structure:
@@ -24,4 +24,4 @@ navbar:
       href: reference/index.html
     github:
       icon: fab fa-github fa-lg
-      href: https://github.com/asshah4/orobrs/
+      href: https://github.com/asshah4/orbs/

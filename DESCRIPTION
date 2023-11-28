@@ -1,5 +1,5 @@
-Package: orobrs
-Title: Cyclical and circular regressions
+Package: orbs
+Title: Cyclical and rhythm based statistics
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anish",
@@ -18,7 +18,6 @@ Depends:
 	R (>= 4.0),
 Imports: 
     lifecycle,
-    survival,
 Suggests: 
     covr,
     knitr,
@@ -27,6 +26,6 @@ Suggests:
 Config/testthat/edition: 3
 Remotes:
     asshah4/card
-URL: https://github.com/asshah4/orobrs
-BugReports: https://github.com/asshah4/orobrs/issues
+URL: https://github.com/asshah4/orbs
+BugReports: https://github.com/asshah4/orbs/issues
 VignetteBuilder: knitr

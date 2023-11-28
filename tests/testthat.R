@@ -1,4 +1,4 @@
 library(testthat)
-library(ouroborus)
+library(orbs)
 
-test_check("ouroborus")
+test_check("orbs")
