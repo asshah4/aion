@@ -2,7 +2,7 @@ Package: orbs
 Title: Cyclical and rhythm based statistics
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Anish",
+    person(given = "Anish S.",
            family = "Shah",
            role = c("aut", "cre"),
            email = "ashah282@uic.edu",
