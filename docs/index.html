@@ -5,14 +5,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Tools that aid in the evaluation of recurring outcomes">
-<title>Cyclical and recurring pattern analysis • aion</title>
+<meta name="description" content="A series of functions designed to identify harmonic patterns in 
+    continuous data. ">
+<title>Cyclical and rhythm based statistics • orbs</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Cyclical and recurring pattern analysis">
-<meta property="og:description" content="Tools that aid in the evaluation of recurring outcomes">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Cyclical and rhythm based statistics">
+<meta property="og:description" content="A series of functions designed to identify harmonic patterns in 
+    continuous data. ">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -22,9 +24,9 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
     
-    <a class="navbar-brand me-2" href="index.html">aion</a>
+    <a class="navbar-brand me-2" href="index.html">orbs</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
@@ -36,19 +38,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://asshah4.github.io/">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/recurrent_events.html">Recurrent Event Analysis</a>
-  </div>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -57,7 +47,7 @@
 
       <ul class="navbar-nav">
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/asshah4/aion/">
+  <a class="external-link nav-link" href="https://github.com/asshah4/orbs/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -70,28 +60,35 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="aion">aion<a class="anchor" aria-label="anchor" href="#aion"></a>
+<div class="page-header"><h1 id="orbs">orbs<a class="anchor" aria-label="anchor" href="#orbs"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of <code>aion</code> is to handle cyclical events, of both continuous and categorical data.</p>
+<p>The goal of <code>orbs</code> is to handle cyclical/harmonic and rhythmic data. The major functionality is to evaluate phasic data using harmonic regressions. It provides support for the basic regression directly, but also implements a <a href="https://www.tidymodels.org/" class="external-link">tidymodels</a> syntax to be called through <a href="https://parsnip.tidymodels.org/" class="external-link">parsnip</a>.</p>
+<p>Currently, this software has been written in a previous package that was published on CRAN called <a href="https://CRAN.R-project.org/package=card" class="external-link"><code>card</code></a>. However, due to a series of expansions in the software and design choices, that package is being split into two parts. The first deals with cardiovascular data, and this package will instead focus on the rhythm analyses. There will be due notice on the software deprecation.</p>
+<div class="section level2">
+<h2 id="on-names">On names<a class="anchor" aria-label="anchor" href="#on-names"></a>
+</h2>
+<p>Naming things is hard, and this name is partially an acronym (<strong>C</strong>yclical and <strong>R</strong>hythm <strong>B</strong>ased <strong>S</strong>tatistics - yes, the <strong>C</strong> looks like an <strong>O</strong>). It also stems from the Latin word <em>orbita</em> which means a “wheel track, beaten path, rut, course” or from the similar word <em>horbi</em> which means “turning thing”. It also phonetically resembles the symbol <em>ouroboros</em>, the snake that bites its own tail.</p>
+<p><img src="reference/figures/ouroboros.png" width="30%" style="display: block; margin: auto;"></p>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Once it is available, you can install the released version of <code>aion</code> from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
+<p>Once it is available, you can install the released version of <code>orbs</code> from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#install.packages("aion")</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#install.packages("orbs")</span></span></code></pre></div>
 <p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"asshah4/aion"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"asshah4/orbs"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/asshah4/aion/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/asshah4/aion/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/asshah4/orbs/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/asshah4/orbs/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -107,7 +104,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing aion</a></li>
+<li><a href="authors.html#citation">Citing orbs</a></li>
 </ul>
 </div>
 
@@ -121,9 +118,9 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/asshah4/aion/actions" class="external-link"><img src="https://github.com/asshah4/aion/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/asshah4/orbs/actions" class="external-link"><img src="https://github.com/asshah4/orbs/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://codecov.io/gh/asshah4/aion?branch=main" class="external-link"><img src="https://codecov.io/gh/asshah4/aion/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://codecov.io/gh/asshah4/orbs?branch=main" class="external-link"><img src="https://codecov.io/gh/asshah4/orbs/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 

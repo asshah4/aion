@@ -26,6 +26,6 @@ Suggests:
 Config/testthat/edition: 3
 Remotes:
     asshah4/card
-URL: https://github.com/asshah4/orbs
+URL: https://github.com/asshah4/orbs, https://asshah4.github.io/orbs/
 BugReports: https://github.com/asshah4/orbs/issues
 VignetteBuilder: knitr
