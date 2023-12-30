@@ -1,5 +1,5 @@
 Package: orbs
-Title: Cyclical and rhythm based statistics
+Title: Cyclical and rhythm-based statistics
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anish S.",
@@ -8,7 +8,7 @@ Authors@R:
            email = "ashah282@uic.edu",
            comment = c(ORCID = "0000-0002-9729-1558"))
 Description: A series of functions designed to identify harmonic patterns in 
-    continuous data. 
+    continuous data using harmonic and  cosinor analytic methods
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
